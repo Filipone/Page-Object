@@ -13,7 +13,7 @@ def pytest_addoption(parser):
 # pip install pytest-rerunfailures==7.0
 
 @pytest.fixture(scope="session")
-def br(request):    # request нужен для выбора браузера и языка
+def browser(request):    # request нужен для выбора браузера и языка
     print("\nStart")
     br_name = request.config.getoption("--browser_names")
     user_language = request.config.getoption("language")
