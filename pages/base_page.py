@@ -1,4 +1,6 @@
+from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import NoSuchElementException
+import math, time
 
 class BasePage():
 
@@ -16,3 +18,21 @@ class BasePage():
         except NoSuchElementException:
             return False
         return True
+
+    def solve_quiz_and_get_code(self):
+        alert = self.browser.switch_to.alert
+        x = alert.text.split(" ")[2]
+        print(x)
+        answer = str(math.log(abs((12 * math.sin(float(x))))))
+        print(answer)
+        alert.send_keys(answer)
+        time.sleep(1)
+        alert.accept()
+        time.sleep(5)
+        try:
+            alert = self.browser.switch_to.alert
+            alert_text = alert.text
+            print(f"Your code: {alert_text}")
+            alert.accept()
+        except NoAlertPresentException:
+            print("No second alert presented")
