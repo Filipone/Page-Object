@@ -11,3 +11,8 @@ class LoginPageLocators():
 
 class ProductPageLocators():
     ADD_BUTTON = (By.CSS_SELECTOR, "button.btn-add-to-basket")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert-success.fade.in")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#invalid_locator")
