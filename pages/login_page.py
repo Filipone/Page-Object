@@ -1,8 +1,8 @@
-from .base_page import BasePage
+from .product_page import ProductPage
 from .locators import LoginPageLocators
 
 
-class LoginPage(BasePage):
+class LoginPage(ProductPage):
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
@@ -23,4 +23,3 @@ class LoginPage(BasePage):
         self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD).send_keys(password)
         self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD2).send_keys(password)
         self.browser.find_element(*LoginPageLocators.REGISTRATION_SUBMIT).click()
-

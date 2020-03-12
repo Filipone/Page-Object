@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators, ProductPageLocators
 
 
-
 class BasePage():
 
     def __init__(self, browser, url, timeout=10):
@@ -26,9 +25,10 @@ class BasePage():
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                      " probably unauthorised user"
+
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
-           "Success message is presented, but should not be"
+            "Success message is presented, but should not be"
 
     def go_to_basket_page(self):
         basket_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
@@ -59,5 +59,3 @@ class BasePage():
             return False
 
         return True
-
-
